@@ -96,11 +96,11 @@ def play_round():
         guess = input("Guess a Letter: ").lower()
 
         if len(guess) != 1 or not guess.isalpha():
-            print("Kuch Dhang ka Likho,IAS YAS bano!!!")
+            print("Invalid Input!!! Please enter a single letter.")
             continue
 
         if guess in guessed_letters:
-            print(f"'{guess}' ho to gya ek baar kitne baar daalega.")
+            print(f"'{guess}' has already been guessed. Try a different letter.")
             continue
 
         guessed_letters.add(guess)
@@ -115,13 +115,13 @@ def play_round():
         if "_" not in hint:
             display_hangman(wrong_guesses)
             display_answer(answer)
-            print("JEET GAYA LAADLE\nMEOOOOW\nGHOP GHOP GHOP!!!")
+            print("CONGRATS!!! YOU WIN!!!")
             is_running = False
             
         elif wrong_guesses >= len(hangman_draw) - 1:
             display_hangman(wrong_guesses)
             display_answer(answer)
-            print("YE SAB KYA DEKHNA PAD RAHA HE\nACCHA HE ME ANDHA HOON")
+            print("GAME OVER!!! BETTER LUCK NEXT TIME!!!")
             is_running = False
 
 def main():
@@ -130,9 +130,9 @@ def main():
     while True:
         play_round()
         
-        replay = input("\nAAJA LADLE AA? (y/n): ").lower()
+        replay = input("\nWanna Play Again? (y/n): ").lower()
         if replay != 'y':
-            print("CHAL BHOSADIKE!!!")
+            print("THANK YOU FOR PLAYING!!! SEE YOU NEXT TIME!!!")
             break
 
 if __name__ == "__main__":
